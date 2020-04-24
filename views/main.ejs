@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <meta http-equiv="refresh" content="2;url=main"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lobster"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
+      integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
+      crossorigin="anonymous"
+    />
+    <title></title>
+    <style>
+      .tweet {
+        width: 100%;
+        height: 100%;
+        background: cyan;
+      }
+
+      #chartdiv {
+        width: 100%;
+        height: 500px;
+      }
+
+      .uparvala {
+        background-image: url(<%=name.l%>);
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body bgcolor="#D3D3D3">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/6.2.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#reserved-urls -->
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+    <!-- Chart code -->
+    <script>
+      am4core.ready(function() {
+
+      // Themes begin
+      am4core.useTheme(am4themes_animated);
+      // Themes end
+
+      var chart = am4core.create("chartdiv", am4charts.PieChart3D);
+      chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+      chart.legend = new am4charts.Legend();
+
+      chart.data = [
+        {
+          country: "Followers",
+          litres: <%= name.a%>
+        },
+        {
+          country: "Friends",
+          litres: <%= name.b%>
+        },
+        {
+          country: "Favourites",
+          litres: <%= name.c%>
+        },
+        {
+          country: "Statuses",
+          litres: <%= name.d%>
+        },
+        {
+          country: "Followers ratio",
+          litres: <%= name.o%>
+        }
+      ];
+
+      var series = chart.series.push(new am4charts.PieSeries3D());
+      series.dataFields.value = "litres";
+      series.dataFields.category = "country";
+
+      }); // end am4core.ready()
+    </script>
+
+    <!-- HTML -->
+    <div class="uparvala">
+      <br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </div>
+
+    <br /><br />
+    <center>
+      <img src=<%= name.m%> style=" width: 73px; height: 73px; padding: 4px;
+      border: solid 1px #ddd; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+      background: white; border-radius: 4px;">
+      <h1><%= name.e%></h1>
+    </center>
+    <center><h2 class="w3-xxxlarge">@<%= name.g%></h2></center>
+    <br /><br />
+    <h2 style="text-align:left;float:left;">DESCRIPTION:</h2>
+    <h3 style="text-align:right;float:right;"><%= name.h%></h3>
+    <hr style="clear:both;" />
+
+    <h2 style="text-align:left;float:left;">LOCATION:</h2>
+    <h3 style="text-align:right;float:right;"><%= name.f%></h3>
+    <hr style="clear:both;" />
+
+    <h2 style="text-align:left;float:left;">CREATED AT:</h2>
+    <h3 style="text-align:right;float:right;"><%= name.i%></h3>
+    <hr style="clear:both;" />
+
+    <h2 style="text-align:left;float:left;">FOLLOWERS:</h2>
+    <h3 style="text-align:right;float:right;"><%= name.a%></h3>
+    <hr style="clear:both;" />
+
+    <h2 style="text-align:left;float:left;">
+      FRIENDS/PEOPLE YOU'RE FOLLOWING:
+    </h2>
+    <h3 style="text-align:right;float:right;"><%= name.b%></h3>
+    <hr style="clear:both;" />
+
+    <h2 style="text-align:left;float:left;">TWEETS POSTED:</h2>
+    <h3 style="text-align:right;float:right;"><%= name.d%></h3>
+    <hr style="clear:both;" />
+
+    <h2 style="text-align:left;float:left;">FOLLOWERS RATIO:</h2>
+    <h3 style="text-align:right;float:right;"><%= name.o%></h3>
+    <hr style="clear:both;" />
+
+    <br />
+
+    <div id="chartdiv"></div>
+
+    <!-- FOR TWEETS STREAMING -->
+    <center><h1>YOUR LATEST TWEETS</h1></center>
+    <div class="tweet">
+      <br />
+      <h2><%= name.p%></h2>
+      <br />
+      <h2><%= name.q%></h2>
+      <br />
+      <h2><%= name.r%></h2>
+      <br />
+      <h2><%= name.s%></h2>
+      <br />
+      <h2><%= name.t%></h2>
+      <br />
+      <h2><%= name.u%></h2>
+      <br />
+      <h2><%= name.v%></h2>
+      <br />
+      <h2><%= name.w%></h2>
+      <br />
+    </div>
+    <br />
+    <style>
+      #chartdivv {
+        width: 100%;
+        height: 500px;
+      }
+    </style>
+    <script>
+      am4core.ready(function() {
+        // Themes begin
+        am4core.useTheme(am4themes_animated);
+        // Themes end
+
+        // create chart
+        var chart = am4core.create("chartdivv", am4charts.GaugeChart);
+        chart.hiddenState.properties.opacity = 0; // this makes initial fade in effect
+
+        chart.innerRadius = -25;
+
+        var axis = chart.xAxes.push(new am4charts.ValueAxis());
+        axis.min = 0;
+        axis.max = 100;
+        axis.strictMinMax = true;
+        axis.renderer.grid.template.stroke = new am4core.InterfaceColorSet().getFor(
+          "background"
+        );
+        axis.renderer.grid.template.strokeOpacity = 0.3;
+
+        var colorSet = new am4core.ColorSet();
+
+        var range0 = axis.axisRanges.create();
+        range0.value = 0;
+        range0.endValue = 50;
+        range0.axisFill.fillOpacity = 1;
+        range0.axisFill.fill = colorSet.getIndex(0);
+        range0.axisFill.zIndex = -1;
+
+        var range1 = axis.axisRanges.create();
+        range1.value = 50;
+        range1.endValue = 80;
+        range1.axisFill.fillOpacity = 1;
+        range1.axisFill.fill = colorSet.getIndex(2);
+        range1.axisFill.zIndex = -1;
+
+        var range2 = axis.axisRanges.create();
+        range2.value = 80;
+        range2.endValue = 100;
+        range2.axisFill.fillOpacity = 1;
+        range2.axisFill.fill = colorSet.getIndex(4);
+        range2.axisFill.zIndex = -1;
+
+        var hand = chart.hands.push(new am4charts.ClockHand());
+        hand.showValue(<%= name.x%>);
+      }); // end am4core.ready()
+    </script>
+
+    <!-- HTML -->
+    <center><h1>RATING FROM US</h1></center>
+    <div id="chartdivv"></div>
+    <br /><br />
+    <center>
+      <a href="/submit">
+        <button class="pure-button">ANALYZE ANOTHER ACCOUNT?</button>
+      </a>
+    </center>
+    <br />
+  </body>
+</html>
+
+<!-- Resources -->
